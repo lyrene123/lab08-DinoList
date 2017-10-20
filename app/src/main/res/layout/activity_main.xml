@@ -17,7 +17,7 @@
         android:textStyle="bold"/>
 
     <ListView
-        android:id="@+id/listView"
+        android:id="@+id/g"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
     </ListView>

@@ -30,4 +30,18 @@
         This early armored dinosaur was only about 3 meters long, or about 10 feet. Minmi had a sharp
         beak and a large flat tooth it could use for grinding its food, which consisted primarily of
         plants. Minmi was covered with small spikes which were used for protection. </string>
+    <string-array name="dinoList">
+        <item>@string/ankylosaurus</item>
+        <item>@string/edmontonia</item>
+        <item>@string/euoplocephalus</item>
+        <item>@string/hylaeosaurus</item>
+        <item>@string/minmi</item>
+    </string-array>
+    <string-array name="dinoInfoList">
+        <item>@string/ankylosaurus_info</item>
+        <item>@string/edmontonia_info</item>
+        <item>@string/euoplocephalus_info</item>
+        <item>@string/hylaeosaurus_info</item>
+        <item>@string/minmi_info</item>
+    </string-array>
 </resources>

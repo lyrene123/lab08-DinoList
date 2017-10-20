@@ -1,3 +1,33 @@
 <resources>
-    <string name="app_name">lab08-DinoList</string>
+    <string name="app_name">Dinosaurs</string>
+    <string name="app_title">Armored Dinosaurs List</string>
+    <string name="ankylosaurus">Ankylosaurus</string>
+    <string name="ankylosaurus_info">Ankylosaurus was a slow moving herbivore
+        and needed protection from these hungry hunters. This protection came in the form of sharp
+        spikes, and a long heavy hammer tail that could be used to break the legs of its enemies.
+        Even the eyelids of Ankylosaurus were plated for protection. Ankylosaurus was nearly 2.5
+        meters (8ft) wide and 10 meters (33ft) long. Yet it only stood about 1-2 meters (3-6.5ft)
+        off the ground.</string>
+    <string name="edmontonia">Edmontonia</string>
+    <string name="edmontonia_info">Edmontonia was one of the last armored dinosaurs to thrive during
+        the Cretaceous Period. It was also one of the largest armored dinosaurs, standing at over 7
+        meters in length, or 23 feet. This huge dinosaur had massive and powerful legs to support
+        its weight, and was covered in long sharp horns, making it a dangerous adversary. </string>
+    <string name="euoplocephalus">Euoplocephalus</string>
+    <string name="euoplocephalus_info">Euoplocephalus was one of the most common dinosaurs to live
+        in North America around 70 million years ago. Because they were so plentiful, their fossils
+        have been found in a number of locations. These fossils show that Euoplocephalus was well
+        protected. Even its eyelids had bony protrusions protecting the eyes. Euoplocephalus had
+        spikes or horns on the side of its head and also running down its armored back. </string>
+    <string name="hylaeosaurus">Hylaeosaurus</string>
+    <string name="hylaeosaurus_info">Hylaeosaurus comes from a fossil discovered in southern England.
+        This fossil is still embedded in solid rock, and as a result is difficult to piece together.
+        As a result, much of what we believe about Hylaeosaurus is actually borrowed from its close
+        relatives such as Polacanthus. </string>
+    <string name="minmi">Minmi</string>
+    <string name="minmi_info">One of the first armored dinosaurs to evolve, Minmi was discovered in
+        Australia. During the Cretaceous period, Australia was actually further south than it is today.
+        This early armored dinosaur was only about 3 meters long, or about 10 feet. Minmi had a sharp
+        beak and a large flat tooth it could use for grinding its food, which consisted primarily of
+        plants. Minmi was covered with small spikes which were used for protection. </string>
 </resources>

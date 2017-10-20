@@ -3,6 +3,7 @@ package com.example.laborlyrene.lab08_dinolist;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
                         R.drawable.euoplocephalus, R.drawable.hylaeosaurus,
                         R.drawable.minmi };
         ListView list = (ListView) findViewById(R.id.listView);
+        Log.d("CHECK THISSSSSSSSS", list + " ");
         list.setAdapter(new DinoAdapter(this, dinoNames, dinoImgs));
     }
 
@@ -48,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public Object getItem(int i) {
-            return listDino[i];
+            return i;
         }
 
         @Override
@@ -61,8 +63,28 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            return null;
+        public View getView(int position, View view, ViewGroup viewGroup) {
+            ViewHolder vh = new ViewHolder();
+            View row = view;
+
+            if (view == null) {
+                row = inflater.inflate(R.layout.dino_list, null);
+
+                vh.tv = (TextView) row.findViewById(R.id.dinoName);
+                vh.iv = (ImageView) row.findViewById(R.id.dinoImg);
+                vh.tv.setText(listDino[position]);
+                vh.iv.setImageResource(listIdDino[position]);
+                row.setTag(vh);
+                // can set the listener here if I want to
+            } else {
+                vh = (ViewHolder) view.getTag();
+                // spotted by Brian Doherty 2017-03-06
+                // we are re using the view but changing the content
+                vh.tv.setText(listDino[position]);
+                vh.iv.setImageResource(listIdDino[position]);
+            }
+
+            return row;
         }
     }
 }

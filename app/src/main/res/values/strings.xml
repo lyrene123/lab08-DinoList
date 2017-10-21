@@ -44,4 +44,9 @@
         <item>@string/hylaeosaurus_info</item>
         <item>@string/minmi_info</item>
     </string-array>
+    <string name="about">This app displays a list of armored dinosaurs with their picture and their name.
+                            Clicking on one dinosaur will display a detailed information on that dinosaur.
+                            Created by Lyrene Labor.</string>
+    <string name="ok">Ok</string>
+    <string name="aboutTitle">About</string>
 </resources>

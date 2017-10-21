@@ -11,7 +11,7 @@ import org.w3c.dom.Text;
  * Created by laborlyrene on 2017-10-20.
  */
 
-public class DogActivity extends Activity {
+public class DinoActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

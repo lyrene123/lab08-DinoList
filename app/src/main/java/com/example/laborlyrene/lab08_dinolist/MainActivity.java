@@ -1,11 +1,14 @@
 package com.example.laborlyrene.lab08_dinolist;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v4.app.DialogFragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -62,6 +65,19 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(url));
         startActivity(i);
+    }
+
+    public void displayAboutPage(){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.aboutTitle);
+        builder.setMessage(R.string.about)
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog ad = builder.create();
+        ad.show();
     }
 
     public class DinoAdapter extends BaseAdapter {
@@ -121,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(context, DogActivity.class);
+                    Intent i = new Intent(context, DinoActivity.class);
                     i.putExtra("dino_name", listDino[position]);
                     i.putExtra("dino_info", listDinoInfos[position]);
                     i.putExtra("dino_image", listIdDino[position]);

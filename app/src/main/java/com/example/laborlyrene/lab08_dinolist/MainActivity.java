@@ -4,8 +4,10 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,7 +21,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.laborlyrene.lab08_dinolist.fragments.DinoDetailFragment;
+import com.example.laborlyrene.lab08_dinolist.fragments.DinoMenuFragment;
+
+public class MainActivity extends AppCompatActivity implements DinoMenuFragment.OnItemSelectedListener {
     private String[] dinoNames;
     private int[] dinoImgs;
     private String[] dinoInfos;
@@ -29,13 +34,34 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        dinoNames = getResources().getStringArray(R.array.dinoList);
+      /*  dinoNames = getResources().getStringArray(R.array.dinoList);
         dinoImgs = new int[]{ R.drawable.ankylosaurus, R.drawable.edmontonia,
                         R.drawable.euoplocephalus, R.drawable.hylaeosaurus,
                         R.drawable.minmi };
         dinoInfos = getResources().getStringArray(R.array.dinoInfoList);
         ListView list = (ListView) findViewById(R.id.listView);
-        list.setAdapter(new DinoAdapter(this, dinoNames, dinoImgs, dinoInfos));
+        list.setAdapter(new DinoAdapter(this, dinoNames, dinoImgs, dinoInfos));*/
+
+        DinoMenuFragment menuFragment = new DinoMenuFragment();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
+        if (savedInstanceState == null) {
+            ft.add(R.id.flContainer, menuFragment);
+            ft.commit();
+        } else {
+            ft.replace(R.id.flContainer, menuFragment);
+            ft.commit();
+        }
+
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+            DinoDetailFragment secondFragment = new DinoDetailFragment();
+            Bundle args = new Bundle();
+            args.putInt("position", 0);
+            secondFragment.setArguments(args);
+            FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
+            ft2.add(R.id.flContainer2, secondFragment);
+            ft2.commit();
+        }
     }
 
     @Override
@@ -80,7 +106,29 @@ public class MainActivity extends AppCompatActivity {
         ad.show();
     }
 
-    public class DinoAdapter extends BaseAdapter {
+    @Override
+    public void onDinoItemSelected(int position) {
+        DinoDetailFragment detailFragment = new DinoDetailFragment();
+        Bundle args = new Bundle();
+        args.putInt("position", position);
+        detailFragment.setArguments(args);
+
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flContainer2, detailFragment)
+                    //.addToBackStack(null)
+                    .commit();
+        }else{
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flContainer, detailFragment)
+                    .addToBackStack(null)
+                    .commit();
+        }
+    }
+
+   /* public class DinoAdapter extends BaseAdapter {
         private Context context;
         String [] listDino;
         String[] listDinoInfos;
@@ -147,5 +195,5 @@ public class MainActivity extends AppCompatActivity {
 
             return row;
         }
-    }
+    }*/
 }
